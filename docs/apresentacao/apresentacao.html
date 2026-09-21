@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>SISCOORD-DC — Apresentação</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  :root { --navy:#1f3d5c; --azul:#2f6690; --claro:#eef3f8; --laranja:#b9770e; --linha:#dde3ea; --cinza:#5b6470; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; background:#fff; color:#1a1a1a; font-family:"Segoe UI", Arial, sans-serif; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .slide { width:1280px; height:720px; position:relative; overflow:hidden; break-after:page; page-break-after:always; }
+  .slide:last-child { break-after:auto; page-break-after:auto; }
+  .topo { position:absolute; top:0; left:0; right:0; height:100px; padding:30px 56px 0; }
+  .topo::before { content:""; position:absolute; left:0; top:34px; width:10px; height:44px; background:var(--laranja); }
+  .topo h2 { margin:0; font-size:36px; color:var(--navy); }
+  .corpo { position:absolute; top:104px; left:56px; right:56px; bottom:44px; }
+  .num-slide { position:absolute; right:40px; bottom:14px; font-size:13px; color:var(--cinza); }
+  .diagrama { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+  .diagrama svg { width:100% !important; height:100% !important; max-width:none !important; }
+  .grade { display:grid; gap:20px; }
+  .cartao { border:1px solid var(--linha); border-radius:12px; padding:20px 22px; }
+  .cartao h3 { margin:0 0 8px; font-size:22px; color:var(--navy); }
+  .cartao p { margin:0; font-size:17px; line-height:1.45; color:#333; }
+  .escuro { background:var(--navy); color:#fff; }
+  .rodape-texto { position:absolute; left:56px; right:120px; bottom:12px; font-size:15px; color:var(--cinza); }
+  .grande { font-size:56px; font-weight:800; color:var(--navy); line-height:1; }
+
+  .eap { display:flex; flex-direction:column; gap:14px; height:100%; }
+  .eap-raiz { align-self:center; background:#1f3d5c; color:#fff; font-weight:800; font-size:20px; padding:9px 26px; border-radius:10px; }
+  .eap-raiz span { font-weight:400; font-size:15px; opacity:.85; margin-left:10px; }
+  .eap-linha { display:grid; gap:10px; }
+  .eap-card { border:1px solid #c9d6e3; border-top:5px solid #2f6690; border-radius:8px; background:#fff; padding:7px 10px; }
+  .eap-tit { font-size:14.5px; color:#1f3d5c; font-weight:700; line-height:1.25; margin-bottom:4px; }
+  .eap-tit b { color:#b9770e; }
+  .eap-card ul { margin:0; padding-left:0; list-style:none; font-size:12.5px; line-height:1.45; color:#333; }
+</style>
+</head>
+<body>
+
+<section class="slide escuro">
+  <div style="position:absolute; left:90px; top:190px; right:90px;">
+    <div style="font-size:16px; letter-spacing:.14em; font-weight:700; color:#f0b85a;">DEFESA CIVIL ESTADUAL · EXÉRCITO BRASILEIRO</div>
+    <div style="font-size:92px; font-weight:800; margin-top:16px;">SISCOORD-DC</div>
+    <div style="font-size:32px; margin-top:8px; color:rgba(255,255,255,.9);">Sistema de Coordenação Geoespacial de Recursos de Defesa Civil</div>
+    <div style="width:120px; height:6px; background:#f0b85a; margin-top:40px;"></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="topo"><h2>O problema e os objetivos</h2></div>
+  <div class="corpo grade" style="grid-template-columns:1fr 1.3fr; gap:40px; align-content:center;">
+    <div class="cartao" style="background:var(--claro); border:none;">
+      <h3>Problema</h3>
+      <p>Em chuvas extremas, equipes, abrigos e equipamentos de vários órgãos precisam ser coordenados entre municípios. Sem um sistema comum, cada órgão vê uma situação diferente, meios são duplicados ou ficam ociosos e as decisões não ficam registradas.</p>
+    </div>
+    <div class="grade" style="grid-template-columns:1fr 1fr; gap:16px;">
+      <div class="cartao"><h3>Empenho rápido</h3><p>Tarefa em ≤ 5 interações; consulta em ≤ 3 s</p></div>
+      <div class="cartao"><h3>Mesma situação</h3><p>Mudanças em todas as telas em ≤ 60 s</p></div>
+      <div class="cartao"><h3>Sem duplicidade</h3><p>Duplo empenho impossível</p></div>
+      <div class="cartao"><h3>Rastreável</h3><p>Auditoria completa e camadas WMS/WFS</p></div>
+    </div>
+  </div>
+  <div class="num-slide">2</div>
+</section>
+
+<section class="slide">
+  <div class="topo"><h2>A solução</h2></div>
+  <div class="corpo grade" style="grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr;">
+    <div class="cartao"><h3>Recursos no mapa</h3><p>Equipes, instalações e equipamentos georreferenciados, com estado controlado.</p></div>
+    <div class="cartao"><h3>Ocorrências</h3><p>Área atingida desenhada no mapa, demandas e saldo ainda descoberto.</p></div>
+    <div class="cartao"><h3>Empenho seguro</h3><p>Sugere os recursos compatíveis mais próximos; o banco impede duplo empenho.</p></div>
+    <div class="cartao"><h3>Mapa comum</h3><p>Camadas, legenda, busca por raio e atualização automática entre sessões.</p></div>
+    <div class="cartao"><h3>Interoperabilidade</h3><p>Publica WMS/WFS (padrão OGC) e consome camadas externas, como a do IBGE.</p></div>
+    <div class="cartao"><h3>Governança</h3><p>Três perfis de acesso, auditoria de toda alteração e relatório SITREP.</p></div>
+  </div>
+  <div class="num-slide">3</div>
+</section>
+
+<section class="slide">
+  <div class="topo"><h2>Arquitetura</h2></div>
+  <div class="corpo" style="bottom:70px;"><div class="diagrama" data-src="d-arquitetura"></div></div>
+  <div class="rodape-texto">PostgreSQL + PostGIS · GeoServer · FastAPI · React + Leaflet · nginx (HTTPS) · Docker — 100% software livre</div>
+  <div class="num-slide">4</div>
+</section>
+
+<section class="slide">
+  <div class="topo"><h2>Modelo entidade-relacionamento</h2></div>
+  <div class="corpo"><div class="diagrama" data-src="d-er"></div></div>
+  <div class="num-slide">5</div>
+</section>
+
+<section class="slide">
+  <div class="topo"><h2>UML — Casos de uso</h2></div>
+  <div class="corpo"><div class="diagrama" data-src="d-casos-uso"></div></div>
+  <div class="num-slide">6</div>
+</section>
+
+<section class="slide">
+  <div class="topo"><h2>UML — Classes</h2></div>
+  <div class="corpo"><div class="diagrama" data-src="d-classes"></div></div>
+  <div class="num-slide">7</div>
+</section>
+
+<section class="slide">
+  <div class="topo"><h2>UML — Sequência: empenhar um recurso</h2></div>
+  <div class="corpo"><div class="diagrama" data-src="d-seq-empenho"></div></div>
+  <div class="num-slide">8</div>
+</section>
+
+<section class="slide">
+  <div class="topo"><h2>UML — Implantação</h2></div>
+  <div class="corpo"><div class="diagrama" data-src="d-implantacao"></div></div>
+  <div class="num-slide">9</div>
+</section>
+
+<section class="slide">
+  <div class="topo"><h2>Gestão — EAP</h2></div>
+  <div class="corpo"><div class="eap"><div class="eap-raiz">1 SISCOORD-DC <span>11 entregáveis · 40 pacotes de trabalho</span></div><div class="eap-linha" style="grid-template-columns:repeat(6,1fr)"><div class="eap-card"><div class="eap-tit"><b>1.1</b> Gerenciamento do projeto</div><ul><li>1.1.1 Termo de abertura</li><li>1.1.2 Planos do projeto</li><li>1.1.3 Monitoramento e controle</li><li>1.1.4 Encerramento</li></ul></div><div class="eap-card"><div class="eap-tit"><b>1.2</b> Requisitos e análise</div><ul><li>1.2.1 Análise dos 25 requisitos</li><li>1.2.2 Cenários e critérios de aceite</li><li>1.2.3 Matriz de rastreabilidade</li></ul></div><div class="eap-card"><div class="eap-tit"><b>1.3</b> Arquitetura e banco de dados</div><ul><li>1.3.1 Arquitetura integrada</li><li>1.3.2 Modelo de dados SIRGAS 2000</li><li>1.3.3 Migração, triggers e índices</li><li>1.3.4 Papéis de banco</li></ul></div><div class="eap-card"><div class="eap-tit"><b>1.4</b> API de negócio (backend)</div><ul><li>1.4.1 Autenticação e perfis</li><li>1.4.2 Recursos e busca por raio</li><li>1.4.3 Ocorrências e demandas</li><li>1.4.4 Empenho e liberação</li><li>1.4.5 Consulta de auditoria</li><li>1.4.6 SITREP e exportação</li></ul></div><div class="eap-card"><div class="eap-tit"><b>1.5</b> Interface web e mapa</div><ul><li>1.5.1 Login e perfis na UI</li><li>1.5.2 Mapa e camadas</li><li>1.5.3 Simbologia e legenda</li><li>1.5.4 Atualização entre sessões</li><li>1.5.5 Telas operacionais</li></ul></div><div class="eap-card"><div class="eap-tit"><b>1.6</b> Interoperabilidade geoespacial</div><ul><li>1.6.1 Publicação WMS/WFS</li><li>1.6.2 Consumo de WMS externo</li></ul></div></div><div class="eap-linha" style="grid-template-columns:repeat(5,1fr); padding:0 7%"><div class="eap-card"><div class="eap-tit"><b>1.7</b> Segurança e conformidade</div><ul><li>1.7.1 HTTPS e hash de senha</li><li>1.7.2 Backup e restauração</li><li>1.7.3 Software livre, IDE-Defesa, LGPD</li></ul></div><div class="eap-card"><div class="eap-tit"><b>1.8</b> Qualidade e testes</div><ul><li>1.8.1 Testes automatizados</li><li>1.8.2 Verificações manuais</li><li>1.8.3 Desempenho e escala</li></ul></div><div class="eap-card"><div class="eap-tit"><b>1.9</b> Implantação</div><ul><li>1.9.1 Containers e Docker Compose</li><li>1.9.2 Ambiente de homologação</li><li>1.9.3 Teste em máquina limpa</li></ul></div><div class="eap-card"><div class="eap-tit"><b>1.10</b> Documentação técnica</div><ul><li>1.10.1 Arquitetura e modelo de dados</li><li>1.10.2 Diagramas UML</li><li>1.10.3 Manual de instalação</li><li>1.10.4 README e conformidade</li></ul></div><div class="eap-card"><div class="eap-tit"><b>1.11</b> Homologação e entrega</div><ul><li>1.11.1 Roteiro e evidências</li><li>1.11.2 Pacote de entrega (29/09)</li><li>1.11.3 Parecer e decisão (05/10)</li></ul></div></div></div></div>
+  <div class="num-slide">10</div>
+</section>
+
+
+<section class="slide escuro">
+  <div style="position:absolute; left:90px; right:90px; top:110px;">
+    <div style="font-size:44px; font-weight:800;">Resultado</div>
+    <div class="grade" style="grid-template-columns:repeat(4,1fr); margin-top:36px;">
+      <div><div style="font-size:60px; font-weight:800; color:#f0b85a;">25</div><div style="font-size:19px;">requisitos implementados e rastreados</div></div>
+      <div><div style="font-size:60px; font-weight:800; color:#f0b85a;">8</div><div style="font-size:19px;">módulos de testes automatizados</div></div>
+      <div><div style="font-size:60px; font-weight:800; color:#f0b85a;">1</div><div style="font-size:19px;">comando para subir tudo (Docker)</div></div>
+      <div><div style="font-size:60px; font-weight:800; color:#f0b85a;">100%</div><div style="font-size:19px;">software livre</div></div>
+    </div>
+    <div style="font-size:19px; margin-top:44px; color:rgba(255,255,255,.85); line-height:1.6;">Documentação: arquitetura · modelo ER · UML · manual de instalação · matriz de rastreabilidade · EAP, cronograma e riscos</div>
+    <div style="font-size:56px; font-weight:800; margin-top:60px;">Obrigado!</div>
+  </div>
+</section>
+
+<script type="text/x-mermaid" id="d-arquitetura">
+flowchart LR
+    classDef pessoa fill:#1f3d5c,stroke:#1f3d5c,color:#ffffff,font-weight:bold
+    classDef navegador fill:#eef3f8,stroke:#2f6690,color:#1a1a1a
+    classDef servidor fill:#ffffff,stroke:#2f6690,color:#1a1a1a
+    classDef banco fill:#e8f5e9,stroke:#2e7d32,color:#1a1a1a
+    classDef externo fill:#fff4e5,stroke:#b9770e,color:#1a1a1a
+
+    U(["👤 Usuário<br/>Coordenador · Operador · Consulta"]):::pessoa
+    QGIS(["🗺️ Outro sistema SIG<br/>ex.: QGIS de outro órgão"]):::pessoa
+
+    subgraph NAV["Computador do usuário"]
+        APP["<b>Aplicação web</b><br/>React + Leaflet<br/>roda dentro do navegador:<br/>telas, mapa, formulários"]:::navegador
+    end
+
+    subgraph SRV["Servidor (Docker)"]
+        PROXY["<b>Portão de entrada</b><br/>nginx · HTTPS · porta 443<br/>único ponto aberto para a rede"]:::servidor
+        ARQ["<b>Arquivos da aplicação</b><br/>HTML, JavaScript, CSS<br/>entregues uma vez ao navegador"]:::servidor
+        API["<b>API</b> · FastAPI<br/>regras de negócio, login,<br/>perfis, empenho, SITREP"]:::servidor
+        GS["<b>GeoServer</b><br/>publica as camadas no<br/>padrão OGC · WMS e WFS"]:::servidor
+        DB[("<b>Banco único</b><br/>PostgreSQL + PostGIS<br/>dados e geometrias juntos<br/>SIRGAS 2000")]:::banco
+    end
+
+    EXT["<b>Provedor WMS externo</b><br/>IBGE · camada de hidrografia"]:::externo
+
+    U -->|"usa"| APP
+    APP -->|"① abre o sistema"| PROXY
+    PROXY -->|"entrega os arquivos"| ARQ
+    APP -->|"② lê e grava dados (JSON)"| PROXY
+    PROXY -->|"repassa /api"| API
+    APP -->|"③ pede camadas de mapa"| PROXY
+    QGIS -->|"④ WMS/WFS com e-mail e senha"| PROXY
+    PROXY -.->|"antes: login válido?"| API
+    PROXY -->|"se sim, repassa /geoserver"| GS
+    API -->|"lê e grava"| DB
+    GS -->|"lê para gerar os mapas"| DB
+    APP -->|"⑤ busca direto, sem passar pelo servidor"| EXT
+</script>
+
+<script type="text/x-mermaid" id="d-er">
+erDiagram
+    ORGAOS ||--o{ RECURSOS : "origem de"
+    MUNICIPIOS ||--o{ OCORRENCIAS : "localiza"
+    USUARIOS ||--o{ OCORRENCIAS : "abre"
+    OCORRENCIAS ||--o{ DEMANDAS : "tem"
+    OCORRENCIAS ||--o{ EMPENHOS : "recebe"
+    DEMANDAS |o--o{ EMPENHOS : "cobre"
+    RECURSOS ||--o{ EMPENHOS : "é empenhado em"
+    USUARIOS ||--o{ EMPENHOS : "autoriza"
+    USUARIOS |o--o{ EMPENHOS : "libera"
+    USUARIOS |o--o{ AUDITORIA : "gera (via trigger)"
+    USUARIOS {
+        uuid id PK
+        varchar email UK
+        perfil_usuario perfil
+        boolean ativo
+    }
+    ORGAOS {
+        uuid id PK
+        varchar sigla UK
+    }
+    MUNICIPIOS {
+        char_7 codigo_ibge PK
+        varchar nome
+    }
+    RECURSOS {
+        uuid id PK
+        tipo_recurso tipo
+        uuid orgao_id FK
+        point_4674 geom
+        estado_recurso estado
+    }
+    OCORRENCIAS {
+        uuid id PK
+        severidade_ocorrencia severidade
+        char_7 municipio_codigo_ibge FK
+        multipolygon_4674 area_atingida
+        status_ocorrencia status
+        uuid criado_por FK
+    }
+    DEMANDAS {
+        uuid id PK
+        uuid ocorrencia_id FK
+        tipo_recurso tipo_recurso
+        int quantidade_necessaria
+    }
+    EMPENHOS {
+        uuid id PK
+        uuid recurso_id FK
+        uuid ocorrencia_id FK
+        uuid demanda_id FK
+        status_empenho status
+        uuid autor_empenho_id FK
+        uuid autor_liberacao_id FK
+    }
+    AUDITORIA {
+        bigserial id PK
+        varchar tabela
+        varchar operacao
+        uuid usuario_id FK
+        jsonb dados_antes
+        jsonb dados_depois
+    }
+    CAMADAS_EXTERNAS {
+        uuid id PK
+        varchar url_wms
+        varchar nome_camada
+        boolean ativa
+    }
+</script>
+
+<script type="text/x-mermaid" id="d-casos-uso">
+flowchart TB
+    classDef ator fill:#1f3d5c,stroke:#1f3d5c,color:#ffffff,font-weight:bold
+    classDef uc fill:#ffffff,stroke:#2f6690,color:#1a1a1a
+    Coordenador(["👤 Coordenador"]):::ator
+    Operador(["👤 Operador"]):::ator
+    Consulta(["👤 Consulta"]):::ator
+    subgraph SC["Somente Coordenador"]
+        direction TB
+        UC1(["Cadastrar / inativar recurso"]):::uc ~~~ UC16(["Gerenciar usuários"]):::uc
+        UC16 ~~~ UC17(["Gerenciar camadas externas"]):::uc
+        UC17 ~~~ UC15(["Consultar auditoria"]):::uc
+    end
+    subgraph CO["Coordenador e Operador"]
+        direction TB
+        UC3(["Registrar ocorrência e demanda"]):::uc ~~~ UC5(["Empenhar / liberar recurso"]):::uc
+        UC5 ~~~ UC7(["Mudar estado do recurso"]):::uc
+        UC7 ~~~ UC8(["Encerrar ocorrência"]):::uc
+    end
+    subgraph TODOS["Todos os perfis"]
+        direction TB
+        UC9(["Ver mapa interativo"]):::uc ~~~ UC10(["Buscar por raio"]):::uc
+        UC10 ~~~ UC12(["Gerar SITREP / exportar"]):::uc
+        UC12 ~~~ UC14(["Ver camadas WMS externas"]):::uc
+    end
+    Coordenador --> SC
+    Coordenador --> CO
+    Coordenador --> TODOS
+    Operador --> CO
+    Operador --> TODOS
+    Consulta --> TODOS
+</script>
+
+<script type="text/x-mermaid" id="d-classes">
+classDiagram
+    class Usuario {
+        +UUID id
+        +str email
+        +PerfilUsuario perfil
+        +bool ativo
+    }
+    class Orgao {
+        +UUID id
+        +str sigla
+    }
+    class Municipio {
+        +str codigo_ibge
+        +str nome
+    }
+    class Recurso {
+        +UUID id
+        +TipoRecurso tipo
+        +UUID orgao_id
+        +Point geom
+        +EstadoRecurso estado
+        +alterar_estado(novo_estado)
+    }
+    class Ocorrencia {
+        +UUID id
+        +SeveridadeOcorrencia severidade
+        +str municipio_codigo_ibge
+        +MultiPolygon area_atingida
+        +StatusOcorrencia status
+        +UUID criado_por
+        +encerrar()
+    }
+    class Demanda {
+        +UUID id
+        +UUID ocorrencia_id
+        +TipoRecurso tipo_recurso
+        +int quantidade_necessaria
+        +saldo_descoberto() int
+    }
+    class Empenho {
+        +UUID id
+        +UUID recurso_id
+        +UUID ocorrencia_id
+        +UUID demanda_id
+        +StatusEmpenho status
+        +UUID autor_empenho_id
+        +UUID autor_liberacao_id
+        +liberar()
+    }
+    class Auditoria {
+        +int id
+        +str tabela
+        +str operacao
+        +UUID usuario_id
+        +dict dados_antes
+        +dict dados_depois
+    }
+    class CamadaExterna {
+        +UUID id
+        +str url_wms
+        +str nome_camada
+        +bool ativa
+    }
+    Orgao "1" --> "0..*" Recurso : origem de
+    Municipio "1" --> "0..*" Ocorrencia : localiza
+    Usuario "1" --> "0..*" Ocorrencia : abre
+    Ocorrencia "1" --> "0..*" Demanda : tem
+    Ocorrencia "1" --> "0..*" Empenho : recebe
+    Demanda "0..1" --> "0..*" Empenho : cobre
+    Recurso "1" --> "0..*" Empenho : é empenhado em
+    Usuario "1" --> "0..*" Empenho : autoriza
+    Usuario "0..1" --> "0..*" Empenho : libera
+    Usuario "0..1" --> "0..*" Auditoria : gera (via trigger)
+</script>
+
+<script type="text/x-mermaid" id="d-seq-empenho">
+sequenceDiagram
+    actor U as operador: Usuario
+    participant O as o: Ocorrencia
+    participant D as d: Demanda
+    participant R as r: Recurso
+
+    U->>O: status
+    O-->>U: aberta
+    U->>O: demandas
+    O->>D: saldo_descoberto()
+    D-->>O: 2
+    O-->>U: d (saldo descoberto 2)
+    U->>R: estado
+    R-->>U: disponivel
+    create participant E as e: Empenho
+    U->>E: «create» Empenho(recurso = r, ocorrencia = o, demanda = d, autor_empenho = operador)
+    Note over E,R: invariante: no máximo 1 Empenho ativo por Recurso
+    E->>R: alterar_estado(empenhado)
+    R-->>E: estado = empenhado
+    E-->>U: status = ativo, empenhado_em = agora
+    create participant A1 as a1: Auditoria
+    U->>A1: «create» Auditoria(tabela = empenhos, operacao = INSERT)
+    create participant A2 as a2: Auditoria
+    U->>A2: «create» Auditoria(tabela = recursos, operacao = UPDATE)
+    U->>O: demandas
+    O->>D: saldo_descoberto()
+    D-->>O: 1
+    O-->>U: d (saldo descoberto 1)
+</script>
+
+<script type="text/x-mermaid" id="d-implantacao">
+flowchart LR
+    Usuario(("Usuários")) -- "HTTPS 443" --> Proxy
+    subgraph Host["Servidor Docker"]
+        Proxy["📦 proxy<br/>nginx"]
+        FE["📦 frontend"]
+        BE["📦 backend<br/>FastAPI"]
+        GS["📦 geoserver"]
+        PG[("📦 postgis<br/>volume de dados")]
+    end
+    Proxy --> FE
+    Proxy --> BE
+    Proxy --> GS
+    BE --> PG
+    GS --> PG
+</script>
+
+<script type="text/x-mermaid" id="d-eap">
+flowchart TD
+    classDef raiz fill:#1f3d5c,stroke:#1f3d5c,color:#ffffff,font-weight:bold
+    classDef n1 fill:#2f6690,stroke:#1f3d5c,color:#ffffff,font-weight:bold
+    R["1 SISCOORD-DC<br/>11 entregáveis · 40 pacotes de trabalho"]:::raiz
+    R --> A["1.1 Gerenciamento<br/>do projeto<br/>4 pacotes"]:::n1
+    R --> B["1.2 Requisitos<br/>e análise<br/>3 pacotes"]:::n1
+    R --> C["1.3 Arquitetura e<br/>banco de dados<br/>4 pacotes"]:::n1
+    R --> D["1.4 API de negócio<br/>backend<br/>6 pacotes"]:::n1
+    R --> E["1.5 Interface web<br/>e mapa<br/>5 pacotes"]:::n1
+    R --> F["1.6 Interoperabilidade<br/>geoespacial<br/>2 pacotes"]:::n1
+    R --> G["1.7 Segurança e<br/>conformidade<br/>3 pacotes"]:::n1
+    R --> H["1.8 Qualidade<br/>e testes<br/>3 pacotes"]:::n1
+    R --> I["1.9 Implantação<br/>3 pacotes"]:::n1
+    R --> J["1.10 Documentação<br/>técnica<br/>4 pacotes"]:::n1
+    R --> K["1.11 Homologação<br/>e entrega<br/>3 pacotes"]:::n1
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: false, theme: "default", fontFamily: '"Segoe UI", Arial, sans-serif',
+    flowchart: { htmlLabels: true, useMaxWidth: false, nodeSpacing: 28, rankSpacing: 34, padding: 10 },
+    sequence: { useMaxWidth: false, mirrorActors: false, messageMargin: 26, actorMargin: 60, messageFontSize: 17, noteFontSize: 16, actorFontSize: 17 },
+    er: { useMaxWidth: false, fontSize: 20, entityPadding: 10, minEntityWidth: 90, minEntityHeight: 50 },
+    class: { useMaxWidth: false },
+  });
+  (async () => {
+    const alvos = [...document.querySelectorAll(".diagrama[data-src]")];
+    for (let i = 0; i < alvos.length; i++) {
+      const alvo = alvos[i];
+      try {
+        const { svg } = await mermaid.render("svg-" + i, document.getElementById(alvo.dataset.src).textContent, alvo);
+        alvo.innerHTML = svg;
+        const el = alvo.querySelector("svg");
+        el.removeAttribute("width"); el.removeAttribute("height"); el.style.maxWidth = "none";
+      } catch (e) {
+        alvo.innerHTML = '<div style="color:#c0392b">Erro ao renderizar ' + alvo.dataset.src + "</div>";
+      }
+    }
+    const unico = location.hash.match(/slide=(\d+)/);
+    if (unico) document.querySelectorAll(".slide").forEach((s, i) => { s.style.display = i === Number(unico[1]) - 1 ? "block" : "none"; });
+    const grade = location.hash.match(/grade=(\d+)/);
+    if (grade) {
+      const ini = Number(grade[1]) - 1;
+      document.body.style.cssText = "display:flex;flex-wrap:wrap;width:1280px;background:#888;";
+      document.querySelectorAll(".slide").forEach((s, i) => { s.style.display = i >= ini && i < ini + 4 ? "block" : "none"; s.style.zoom = "0.5"; });
+    }
+    document.body.dataset.pronto = "1";
+  })();
+</script>
+</body>
+</html>

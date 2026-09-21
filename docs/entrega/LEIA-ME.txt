@@ -1,0 +1,31 @@
+﻿SISCOORD-DC — Documentação do sistema
+======================================
+Equipe de Desenvolvimento (9 alunos) · Stakeholders (3) · Auditores (3)
+Calendário: requisitos 03/08 · indicadores 13/08 · sprints 15/09 e 22/09 · entrega e auditoria 29/09 · parecer e decisão 05/10
+
+VISÃO GERAL
+00_Visao_Geral_da_Documentacao.pdf       apresentação de 12 slides resumindo toda a documentação
+
+DOCUMENTAÇÃO TÉCNICA
+01_Arquitetura.pdf                       visão geral, decisões de arquitetura, perfis de acesso
+02_Modelo_de_Dados_ER.pdf                diagrama entidade-relacionamento, máquina de estados
+03_Diagramas_UML.pdf                     casos de uso, classes, sequência, implantação
+04_Manual_de_Instalacao.pdf              instalação em máquina limpa, backup e restauração
+05_Matriz_de_Rastreabilidade.pdf         25 requisitos -> componente -> verificação
+15_Conformidade.pdf                      software livre, IDE-Defesa, LGPD
+
+GESTÃO DO PROJETO
+06_EAP.pdf                               Estrutura Analítica do Projeto e dicionário
+07_Cronograma.pdf                        calendário do case, Gantt e caminho crítico
+08_Riscos.pdf                            matriz probabilidade x impacto e registro de riscos
+10_Termo_de_Abertura.pdf                 objetivos, escopo, marcos, premissas, restrições
+11_Organizacao_e_RACI.pdf                organograma e matriz de responsabilidades
+12_Partes_Interessadas_e_Comunicacao.pdf matriz poder x interesse e plano de comunicação
+13_Controle_de_Mudancas.pdf              fluxo de aprovação de mudanças
+14_Relatorio_de_Situacao.pdf             situação do projeto e próximos passos
+
+APRESENTAÇÃO
+09_Apresentacao.pdf                      apresentação do trabalho (11 slides)
+
+Repositório: https://github.com/viniciusbrito1/GeoProjeto_SIG
+Fonte editável (Markdown): pasta docs/ do repositório
